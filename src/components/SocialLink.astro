@@ -1,0 +1,35 @@
+---
+import { SOCIAL_LINKS } from '../consts';
+import { ArrowUpRight } from '@lucide/astro';
+---
+
+<div class="flex flex-col gap-6" style={{ transitionDelay: '500ms' }}>
+  <h2 class="text-sm text-neutral-400 uppercase">LET'S GET IN TOUCH</h2>
+  <div class="flex flex-wrap gap-6">
+    {
+      SOCIAL_LINKS.map((link) => (
+        <div class="group">
+          {link.label === 'Email' ? (
+            <button
+              onclick={`navigator.clipboard.writeText('${link.value}')`}
+              class="text-sm text-neutral-900 hover:text-neutral-600 transition-colors flex items-center gap-1 group cursor-pointer"
+            >
+              {link.label}
+              <ArrowUpRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </button>
+          ) : (
+            <a
+              href={link.href}
+              class="text-sm text-neutral-900 hover:text-neutral-600 transition-colors flex items-center gap-1 group"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {link.label}
+              <ArrowUpRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</div>

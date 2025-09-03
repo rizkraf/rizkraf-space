@@ -1,0 +1,26 @@
+<div id="time"></div>
+
+<script>
+  function updateTime() {
+    const date = new Date();
+    const options: Intl.DateTimeFormatOptions = {
+      timeZone: 'Asia/Jakarta',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true,
+    };
+    const timeElement = document.getElementById('time');
+    if (timeElement) {
+      timeElement.textContent = date.toLocaleTimeString(
+        'en-US',
+        options
+      );
+    }
+  }
+
+  updateTime();
+  const timer = setInterval(updateTime, 1000);
+
+  window.addEventListener('beforeunload', () => clearInterval(timer));
+</script>
