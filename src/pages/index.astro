@@ -6,6 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Description from '../components/Description.astro';
 import Clock from '../components/Clock.astro';
 import SocialLink from '../components/SocialLink.astro';
+import Projects from '../components/Projects.astro';
 ---
 
 <!doctype html>
@@ -27,8 +28,9 @@ import SocialLink from '../components/SocialLink.astro';
           <div class="flex flex-col gap-8 sm:gap-12 p-0 sm:p-4">
             <Header />
             <Description />
+            <Projects />
 						<SocialLink />
-						<Clock client:load />
+						<Clock />
           </div>
         </div>
       </div>
